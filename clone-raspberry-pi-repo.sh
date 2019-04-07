@@ -5,4 +5,4 @@ mkdir git
 # Go to the repos
 cd git
 # Clone the "raspberry-pi" repository
-git clone https://github.com/Neylion/raspberry-pi.git
+yes "yes" | git clone git+ssh://git@github.com/Neylion/raspberry-pi.git
