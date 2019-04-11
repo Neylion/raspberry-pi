@@ -25,17 +25,24 @@ If you later want to start over, this is how you make a “factory reset”:
 2. Connect to a wifi in top right corner.
 
 ## Setup Git and clone this repo.
-1. Open up a terminal
-2. (Follow this guide to avoid having to authenticate yourself for every git action: https://stackoverflow.com/questions/8588768/how-do-i-avoid-the-specification-of-the-username-and-password-at-every-git-push)
-2. Manually run the command lines in file ``01-git-init.sh``.
-3. Manually run the command lines in file ``clone-raspberry-pi-repo.sh``
+1. Follow [this guide](https://stackoverflow.com/questions/8588768/how-do-i-avoid-the-specification-of-the-username-and-password-at-every-git-push) to avoid having to authenticate yourself for every git action: )
+2. Open up a terminal
+3. Manually run the command lines in file ``01-git-init.sh``.
+4. Manually run the command lines in file ``clone-raspberry-pi-repo.sh``
 
 # Install docker
 
-curl -fsSL https://get.docker.com | sh > get-docker.log
-#   $ sh get-docker.sh
+curl -fsSL https://get.docker.com | sh | tee get-docker.log
 
 ## Give user pi access to docker
-sudo usermod -aG docker pi
 
 WARNING: Adding a user to the "docker" group will grant the ability to run containers which can be used to obtain root privileges on the docker host.
+
+1. sudo usermod -aG docker pi
+2. Logout and login to take effect
+
+## Verify docker installation
+
+1. docker --version | tee docker-version.log
+2. docker run hello-world
+3. Verify that a (long) hello message is displayed
