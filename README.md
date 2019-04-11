@@ -31,6 +31,11 @@ If you later want to start over, this is how you make a “factory reset”:
 3. Manually run the command lines in file ``clone-raspberry-pi-repo.sh``
 
 # Install docker
-# This script is meant for quick & easy install via:
-#   $ curl -fsSL https://get.docker.com -o get-docker.sh
+
+curl -fsSL https://get.docker.com | sh > get-docker.log
 #   $ sh get-docker.sh
+
+## Give user pi access to docker
+sudo usermod -aG docker pi
+
+WARNING: Adding a user to the "docker" group will grant the ability to run containers which can be used to obtain root privileges on the docker host.
