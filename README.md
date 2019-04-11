@@ -27,10 +27,10 @@ If you later want to start over, this is how you make a “factory reset”:
 ## Setup Git and clone this repo.
 1. Follow [this guide](https://stackoverflow.com/questions/8588768/how-do-i-avoid-the-specification-of-the-username-and-password-at-every-git-push) to avoid having to authenticate yourself for every git action: )
 2. Open up a terminal
-3. Manually run the command lines in file ``01-git-init.sh``.
-4. Manually run the command lines in file ``clone-raspberry-pi-repo.sh``
+3. sh git-init.sh > git-init.log
+4. sh clone-raspberry-pi-repo.sh > clone-raspberry-pi-repo.log
 
-# Install docker
+## Install docker
 
 curl -fsSL https://get.docker.com | sh | tee get-docker.log
 
@@ -44,5 +44,13 @@ WARNING: Adding a user to the "docker" group will grant the ability to run conta
 ## Verify docker installation
 
 1. docker --version | tee docker-version.log
+2. docker info | tee docker-info.log
 2. docker run hello-world
 3. Verify that a (long) hello message is displayed
+
+# Run a custom docker image
+
+This description is based on [docs.docker.com](https://docs.docker.com/get-started/)
+
+## 
+
