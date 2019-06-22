@@ -48,9 +48,28 @@ WARNING: Adding a user to the "docker" group will grant the ability to run conta
 2. docker run hello-world
 3. Verify that a (long) hello message is displayed
 
-# Run a custom docker image
-
 This description is based on [docs.docker.com](https://docs.docker.com/get-started/)
 
-## 
+# Create a custom (.net core) docker image
+NOTE: These instructions should be done a separate machine with the following requirements:
+- Windows 10 pro (required for docker)
+- Docker installed
+- Visual Studio IDE
 
+1. Create a .net core "Hello world!" project.
+2. Right click the project and choose "Add/Container Orchestrator Support".
+3. Choose Docker as container orchestrator in the popup.
+4. Docker file adjustments (TO BE EXPANDED ON!)
+  a. To add support to run in linux environment make sure the first line is ``FROM microsoft/dotnet:2.2-runtime-stretch-slim-arm32v7 AS base``
+5. Save the project.
+6. Open the terminal.
+7. Run the command ``docker build <path_to_docker_file> --tag="<image_name>:<image_tag>``
+8. <Login to docker hub etc?>
+9. Run the command ``docker push <image_name>:<image_tag>``
+
+# Pull and run the custom docker image
+
+1. Open the the terminal on the rasberry.
+2. Enter the command ``docker run <image_name>:<image_tag>``
+
+## 
