@@ -24,8 +24,25 @@ If you later want to start over, this is how you make a “factory reset”:
         1. Change Password.
 2. Connect to a wifi in top right corner.
 
+## Setup remote access through VNC
+
+### Enabling the VNC Server on Raspberry Pi
+1. Open up a terminal
+2. Use the command ``sudo raspi-config``.
+3. Enable VNC (Navigate using arrows & enter)
+    1. Choose Interfacing Options
+    2. Choose VNC
+    3. Choose <Yes>
+4. Find the IP for the raspberry pi by using the command ``hostname -I``
+
+### Accessing the Pi (Windows)
+1. Download [VNC Viewer](https://www.realvnc.com/en/connect/download/viewer/) on your computer.
+2. Open VNC Viewer
+3. Enter your raspberry pi IP.
+4. Enter your raspberry pi user credentials.
+
 ## Setup Git and clone this repo.
-1. Follow [this guide](https://stackoverflow.com/questions/8588768/how-do-i-avoid-the-specification-of-the-username-and-password-at-every-git-push) to avoid having to authenticate yourself for every git action: )
+1. Follow [this guide](https://stackoverflow.com/questions/8588768/how-do-i-avoid-the-specification-of-the-username-and-password-at-every-git-push) to avoid having to authenticate yourself for every git action
 2. Open up a terminal
 3. sh git-init.sh > git-init.log
 4. sh clone-raspberry-pi-repo.sh > clone-raspberry-pi-repo.log
@@ -63,7 +80,7 @@ NOTE: These instructions should be done a separate machine with the following re
 4. Docker file adjustments (TO BE EXPANDED ON!)
       1. To add support to run in linux environment make sure the first line is ``FROM microsoft/dotnet:2.2-runtime-stretch-slim-arm32v7 AS base``
 5. Save the project.
-6. Open the terminal.
+6. Open a terminal.
 7. Run the command ``docker build <path_to_docker_file> --tag="<image_name>:<image_tag>"``
 8. Login to docker hub using ``docker login`` and following the instructions
 9. Run the command ``docker push <image_name>:<image_tag>``
@@ -72,7 +89,7 @@ Now the image you created is available on dockerhub and anyone (?) can download 
 
 ## Pull and run the custom docker image
 
-1. Open the the terminal on the rasberry.
+1. Open the a terminal on the rasberry.
 2. Enter the command ``docker run <image_name>:<image_tag>``
 
 ## Using environment variables
@@ -87,13 +104,13 @@ Now the image you created is available on dockerhub and anyone (?) can download 
 ### Add environment variable - Raspbian
 Pre-requisite: For these steps "vim" is used as text editor. You can install it using the command ``sudo apt-get install vim``.
 
-1. Open up the terminal.
+1. Open up a terminal.
 2. Enter the command ``sudo vim /etc/profile``.
 3. Click the "i"-key to enter insert mode.
 4. At the bottom of the file, enter "export <VARIABLE_NAME>="<VARIABLE_VALUE>" (You can repeat this on multiple rows to add multiple variables).
 5. Press the "esc"-key and write ``:wq`` to save the file.
 6. You are now done but need to run a restart to make the variables available for use.
-7. (OPTIONAL) You can confirm that the environment variable has been created properly by going to the terminal and using the command ``printenv <VARIABLE_NAME>``.
+7. (OPTIONAL) You can confirm that the environment variable has been created properly by going to a terminal and using the command ``printenv <VARIABLE_NAME>``.
 
 ### Get the variable value in the code (.net core):
 1. Go to the code location where you want to use the variable value.
@@ -102,7 +119,7 @@ Pre-requisite: For these steps "vim" is used as text editor. You can install it 
 ### Making the variables available in a docker container
 To be able to fetch the variables from a docker container we must pass them in when running the image. This can be done in a number of ways but for these steps the "--env-file"-option is used.
 
-1. Open the terminal.
+1. Open a terminal.
 2. Create the env.list file.
       1. Use the command ``cd``.
       2. Use the command ``sudo vim Documents/env.list``
